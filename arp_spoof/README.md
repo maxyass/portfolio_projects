@@ -16,15 +16,15 @@ This code implements a simple arp-spoof exploit. An ARP spoof exploit is a cyber
 ## How to build the software in this repository
 
 1. Clone the base repository to your local machine to have access to all the exploits:
-    	
+    	```bash
 	```git clone https://github.com/maxyass/Projects-Im-Proud-Of```
 	
 2. Navigate to the project directory of the exploit you want to test:
-	
+	```bash
 	```cd arp_spoof```
 
 3. Compile the program using make:
-    	
+    	```bash
 	```make```
 
 ## How to use the software
