@@ -42,7 +42,7 @@ and:
 
 	make
 
-3 Copy the executable over to the client:
+# Copy the executable over to the client:
 
 Locally run:
 
@@ -54,11 +54,11 @@ On the client run:
 
 Where <I> is your local IP Address
 
-4 The server has a UDP Beacon that you can point to IP Address H by running:
+# The server has a UDP Beacon that you can point to IP Address H by running:
 
 	udpbeacon H
 
-5 Run the arp_spoof executable by running:
+# Run the arp_spoof executable by running:
 
 	./arpspoof MY_INTERFACE MY_MAC HIJACKED_IP VICTIM_MAC VICTIM_IP
 
