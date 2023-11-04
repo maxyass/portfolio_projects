@@ -22,7 +22,7 @@ This Repository contains projects I have completed over the last couple of years
     ```bash
     git clone https://github.com/maxyass/Projects-Im-Proud-Of
 
-2. Navigate to the project directory:
+2. Navigate to the project directory of the exploit you want to test:
     ```bash
     cd arp_spoof
 
