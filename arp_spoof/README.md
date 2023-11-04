@@ -17,8 +17,7 @@ This code implements a simple arp-spoof exploit. An ARP spoof exploit is a cyber
 
 1. Clone the base repository to your local machine to have access to all the exploits:
     	```
-	git clone https://github.com/maxyass/Projects-Im-Proud-Of
-	```
+	git clone https://github.com/maxyass/Projects-Im-Proud-Of```
 	
 2. Navigate to the project directory of the exploit you want to test:
 	```
@@ -43,9 +42,9 @@ and:
 	qemu-system-x86_64 -m 2048 -nographic -device e1000,netdev=n1,mac=52:54:00:12:34:57 -netdev socket,id=n1,connect=:1024 -hda arpspoof-client-sanitized-openwrt-x86-64-generic-ext4-combined.img
 	```
 2. In a third terminal window compile the software by running:
-    ```
-    make
-    ```
+	```
+	make
+	```
 
 3. Copy the executable over to the client:
 
