@@ -30,7 +30,6 @@ This code implements a simple arp-spoof exploit. An ARP spoof exploit is a cyber
     ```bash
     make
 
-
 ## How to use the software
 
 To use the program, follow these steps:
@@ -42,7 +41,6 @@ To use the program, follow these steps:
 	```bash
 	qemu-system-x86_64 -m 2048 -nographic -device e1000,netdev=n1,mac=52:54:00:12:34:57 -netdev socket,id=n1,connect=:1024 -hda arpspoof-client-sanitized-openwrt-x86-64-generic-ext4-combined.img
 
-
 2. In a third terminal window compile the software by running:
     ```bash
     make
@@ -50,13 +48,12 @@ To use the program, follow these steps:
 3. Copy the executable over to the client:
 Locally run:
     	```bash
-    	nc -l 2048 -c "/bin/cat arpspoof"
+    	nc -l 2048 -c \"/bin/cat arpspoof\"
 
 On the client run:
 	```bash
 	nc I 2048 >arpspoof
 Where <I> is your local IP Address
-
 
 4. The server has a UDP Beacon that you can point to an IP Address (H) by running:
 	```bash
