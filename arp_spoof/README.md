@@ -11,6 +11,7 @@ Maxwell Yass
 ## Description:
 
 This code implements a simple arp-spoof exploit. An ARP spoof exploit is a cyberattack where an attacker manipulates the Address Resolution Protocol (ARP) to associate their own MAC address with a legitimate IP address. This allows an attacker to intercept network traffic and set up for various attacks such as eavesdropping or man-in-the-middle attacks.
+
 ** Within this directory are a client and server image that you should exlusively test this exploit on. Using this software on a public network to gain an offensively maliscious position is illegal. **
 
 ## How to build the software in this repository
