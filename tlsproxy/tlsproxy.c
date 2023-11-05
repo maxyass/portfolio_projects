@@ -1,13 +1,8 @@
-/*
- * Demo based on Mbed TLS's ssl_client1.c, which is Copyright The Mbed
- * TLS Contributors and distributed under the Apache-2.0 license.
- */
 
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "certs.h"
 #include "mbedtls/build_info.h"
 #include "mbedtls/net_sockets.h"
@@ -47,9 +42,9 @@ int main(int argc, char *argv[])
 	HOST = argv[2];
 	SERVER_PORT = argv[3];
 
-/**
- * BEGIN CONNECTION TO SERVER
- */
+	/**
+	 * BEGIN CONNECTION TO SERVER
+	 */
 	/*
 	 * 0. Initialize the random-number generator and the session data.
 	 */
@@ -72,7 +67,7 @@ int main(int argc, char *argv[])
 	printf(" ok\n");
 
 	/*
-	 * 0. Load certificates.
+	 * 1. Load certificates.
 	 */
 	printf("  . Loading the CA root certificate ...");
 	fflush(stdout);
@@ -87,7 +82,7 @@ int main(int argc, char *argv[])
 	printf(" ok (%d skipped)\n", ret);
 
 	/*
-	 * 1. Start the connection.
+	 * 2. Start the connection.
 	 */
 	printf("  . Connecting to tcp/%s/%s...", HOST, SERVER_PORT);
 	fflush(stdout);
@@ -101,7 +96,7 @@ int main(int argc, char *argv[])
 	printf(" ok\n");
 
 	/*
-	 * 2. Setup stuff.
+	 * 3. Setup configuration.
 	 */
 	printf("  . Setting up the SSL/TLS structure...");
 	fflush(stdout);
@@ -115,7 +110,7 @@ int main(int argc, char *argv[])
 	printf(" ok\n");
 
 	/*
-	 * OPTIONAL is not optimal for security,
+	 * 4. OPTIONAL is not optimal for security,
 	 * but makes interop easier in this simplified example
 	 */
 	mbedtls_ssl_conf_authmode(&server_conf, MBEDTLS_SSL_VERIFY_OPTIONAL);
@@ -137,7 +132,7 @@ int main(int argc, char *argv[])
 	mbedtls_ssl_set_bio(&server_ssl, &server_fd, mbedtls_net_send, mbedtls_net_recv, NULL);
 
 	/*
-	 * 4. TLS handshake.
+	 * 5. TLS handshake.
 	 */
 	printf("  . Performing the SSL/TLS handshake...");
 	fflush(stdout);
@@ -154,7 +149,7 @@ int main(int argc, char *argv[])
 	printf(" ok\n");
 
 	/*
-	 * 5. Verify the server certificate.
+	 * 6. Verify the server certificate.
 	 */
 	printf("  . Verifying peer X.509 certificate...");
 
@@ -172,13 +167,13 @@ int main(int argc, char *argv[])
 		printf(" ok\n");
 	}
 
-/**
- * END CONNECTION TO SERVER
- */
+	/**
+	 * DONE CONNECTING TO SERVER
+	 */
 
-/**
- * BEGIN CONNECTION TO CLIENT and FORWARDING REQUEST
- */
+	/**
+	 * BEGIN CONNECTION TO CLIENT
+	 */
 	short client_port = strtol(CLIENT_PORT, NULL, 10);
 	if (client_port == 0)
 	{
@@ -194,13 +189,13 @@ int main(int argc, char *argv[])
 		goto exit;
 	}
 
-	// setting client socket attributes
+	// Setting client socket attributes
 	struct sockaddr_in client_addr = {0};
 	client_addr.sin_port = htons(client_port);
 	client_addr.sin_family = PF_INET;
 	client_addr.sin_addr.s_addr = INADDR_ANY;
 
-	// binding
+	// Binding
 	rc = bind(sockfd, (struct sockaddr *)&client_addr, sizeof(client_addr));
 	if (-1 == rc)
 	{
@@ -208,7 +203,7 @@ int main(int argc, char *argv[])
 		goto exit;
 	}
 
-	// listening
+	// Listening
 	rc = listen(sockfd, 0);
 	if (-1 == rc)
 	{
@@ -216,7 +211,7 @@ int main(int argc, char *argv[])
 		goto exit;
 	}
 
-	// accepted connection
+	// Accepted connection
 	connfd = accept(sockfd, NULL, NULL);
 	if (connfd == -1)
 	{
@@ -230,7 +225,9 @@ int main(int argc, char *argv[])
 	{
 		ssize_t size = recv(connfd, client_buf, sizeof(client_buf), 0);
 
-		// Forwarding client's request to server
+		/**
+		 * Forwarding client's request to server
+		 */
 		printf("  > Write to server:");
 		fflush(stdout);
 
@@ -252,9 +249,9 @@ int main(int argc, char *argv[])
 		}
 	}
 
-/**
- * END CONNECTING TO CLIENT, AND FORWARDING REQUEST
- */
+	/**
+	 * DONE CONNECTING TO CLIENT, AND FORWARDING CLIENT REQUEST
+	 */
 
 	/*
 	 * Read the HTTP response from the server
@@ -304,6 +301,7 @@ int main(int argc, char *argv[])
 		{
 			printf("Send back failed\n");
 		}
+		
 		len = ret;
 		printf(" %d bytes written\n\n%s", len, (char *)buf);
 	} while (true);
