@@ -25,9 +25,9 @@ This Repository contains projects I have completed over the last couple of years
 
 2. Navigate to the project directory of the exploit you want to test:
     ```bash
-    cd arp_spoof
+    cd Projects-Im-Proud-Of/arp_spoof
 
-3. Compile the program using make:
+3. Compile the program using its respective makefile:
     ```bash
     make
 
