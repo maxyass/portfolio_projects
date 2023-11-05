@@ -31,7 +31,6 @@ This Repository contains projects I have completed over the last couple of years
     ```bash
     make
 
-
 ## How to the exploits
 
 To use the various exploits in this repository, follow the steps found on the README file within each program's directory.
