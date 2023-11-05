@@ -43,9 +43,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    // char *flag_addr;
-    // char *strt;
-
     // // read bytes from service 
     for (;;) {
         size = recv(fd, filename_buf, sizeof(filename_buf), 0);
