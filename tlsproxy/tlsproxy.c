@@ -1,14 +1,8 @@
-/*
- * Demo based on Mbed TLS's ssl_client1.c, which is Copyright The Mbed
- * TLS Contributors and distributed under the Apache-2.0 license.
- */
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "certs.h"
+#include "tls_help/certs.h"
 #include "mbedtls/build_info.h"
 #include "mbedtls/net_sockets.h"
 #include "mbedtls/debug.h"

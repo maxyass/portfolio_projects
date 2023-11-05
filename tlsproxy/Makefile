@@ -1,6 +1,6 @@
 all: tlsproxy
 
-tlsproxy: *.c
+tlsproxy: *.c tls_help/*.c
 	$(CC) -o $@ -Iinclude -I. $^
 
 clean:
