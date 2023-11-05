@@ -23,9 +23,6 @@ int main(int argc, char **argv) {
     char filename_buf[20];
     filename_buf[19] = '\0';
 
-    unsigned long buf_addr_l;
-    unsigned long  bp_addr_l;
-
     // lookup service
     rc = getaddrinfo(argv[1], argv[2], &hints, &info);
     if (0 != rc) {
