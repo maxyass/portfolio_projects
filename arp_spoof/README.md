@@ -75,6 +75,8 @@ Where:
 
 	VICTIM_IP = The IP address 
 
+6\. Observe the \[Sanatized\] secret that the udpbeacon was attempting to send to H being printed on your cleint's STDOUT
+
 
 ## How the software was tested
 
