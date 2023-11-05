@@ -54,7 +54,7 @@ To exploit the vulnerable service, follow these steps:
 
 ## How the software was tested
 
-The software was tested against the vulnerable service by running it as described above. As well as testing bad inputs to ensure error handling is set up properly. 
+The software was tested against the vulnerable service by running it as described above. As well as testing poorly formatted inputs to ensure error handling is set up properly. 
 
 ## Known bugs and problem areas
 
