@@ -1,8 +1,13 @@
+/*
+ * Demo based on Mbed TLS's ssl_client1.c, which is Copyright The Mbed
+ * TLS Contributors and distributed under the Apache-2.0 license.
+ */
 
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "certs.h"
 #include "mbedtls/build_info.h"
 #include "mbedtls/net_sockets.h"
@@ -42,9 +47,9 @@ int main(int argc, char *argv[])
 	HOST = argv[2];
 	SERVER_PORT = argv[3];
 
-	/**
-	 * BEGIN CONNECTION TO SERVER
-	 */
+/**
+ * BEGIN CONNECTION TO SERVER
+ */
 	/*
 	 * 0. Initialize the random-number generator and the session data.
 	 */
@@ -167,13 +172,13 @@ int main(int argc, char *argv[])
 		printf(" ok\n");
 	}
 
-	/**
-	 * DONE CONNECTING TO SERVER
-	 */
+/**
+ * END CONNECTION TO SERVER
+ */
 
-	/**
-	 * BEGIN CONNECTION TO CLIENT
-	 */
+/**
+ * BEGIN CONNECTION TO CLIENT
+ */
 	short client_port = strtol(CLIENT_PORT, NULL, 10);
 	if (client_port == 0)
 	{
@@ -226,7 +231,7 @@ int main(int argc, char *argv[])
 		ssize_t size = recv(connfd, client_buf, sizeof(client_buf), 0);
 
 		/**
-		 * Forwarding client's request to server
+		 * Forward client's request to server
 		 */
 		printf("  > Write to server:");
 		fflush(stdout);
@@ -249,9 +254,9 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	/**
-	 * DONE CONNECTING TO CLIENT, AND FORWARDING CLIENT REQUEST
-	 */
+/**
+ * END CONNECTING TO CLIENT, AND FORWARDING REQUEST
+ */
 
 	/*
 	 * Read the HTTP response from the server
@@ -301,7 +306,6 @@ int main(int argc, char *argv[])
 		{
 			printf("Send back failed\n");
 		}
-		
 		len = ret;
 		printf(" %d bytes written\n\n%s", len, (char *)buf);
 	} while (true);
