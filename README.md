@@ -4,8 +4,6 @@
 
 Maxwell Yass
 
-Supporting Materials By: W. Michael Petullo
-
 ## Date:
 
 04 November 2023
